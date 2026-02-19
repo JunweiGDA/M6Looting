@@ -1,5 +1,5 @@
-res://lessons/chest/chest.tscn
+res://assets/torch/torch.tscn
 res://addons/gdpractice/assets/theme.tres
 res://lessons/chest/group_outline.gdshader
-res://lessons/chest/chest.gd
+res://assets/torch/torch.gd
 res://lessons/mini_dungeon.tscn

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnetm54guji21"]
+[gd_scene load_steps=8 format=3 uid="uid://dnetm54guji21"]
 
-[ext_resource type="Shader" path="res://assets/bird/shadow.gdshader" id="1_n65kd"]
-[ext_resource type="Texture2D" uid="uid://b01mnp8qxfbh7" path="res://assets/small_circle.png" id="2_2mb0d"]
+[ext_resource type="Shader" uid="uid://d3s8mg37er32b" path="res://assets/bird/shadow.gdshader" id="1_n65kd"]
+[ext_resource type="Script" uid="uid://dn33bqkcwrhxk" path="res://assets/bird/shadow.gd" id="3_fshbh"]
+[ext_resource type="Texture2D" uid="uid://bwhshkk62k3bh" path="res://assets/bird/sparrow.png" id="3_h7mg1"]
 
 [sub_resource type="Gradient" id="Gradient_1pcbm"]
 interpolation_mode = 1
@@ -15,8 +16,22 @@ gradient = SubResource("Gradient_1pcbm")
 shader = ExtResource("1_n65kd")
 shader_parameter/shadow_gradient = SubResource("GradientTexture1D_rg04a")
 
-[node name="Shadow" type="Sprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vhxj"]
+radius = 28.178612
+
+[node name="Shadow" type="Area2D"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_3o8dr")
 scale = Vector2(1.5625, 0.976562)
-texture = ExtResource("2_2mb0d")
+script = ExtResource("3_fshbh")
+
+[node name="wait_timer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_fshbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6vhxj")
+
+[node name="Sparrow" type="Sprite2D" parent="."]
+position = Vector2(0.64, 0)
+texture = ExtResource("3_h7mg1")
